@@ -69,9 +69,9 @@ class GukbangAnalogClockPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 8;
 
-    final hourHandX = centerX + 60 * cos(dateTime.hour * 30 * pi / 180);
+    final hourHandX = centerX + 60 * cos(dateTime.hour * 30 * pi / 180 - pi / 2);
 
-    final hourHandY = centerY + 60 * sin(dateTime.hour * 30 * pi / 180);
+    final hourHandY = centerY + 60 * sin(dateTime.hour * 30 * pi / 180 - pi / 2);
 
     canvas.drawLine(center, Offset(hourHandX, hourHandY), hourHandBrush);
 
@@ -81,9 +81,9 @@ class GukbangAnalogClockPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 6;
 
-    final minutesHandX = centerX + 80 * cos(dateTime.minute * 6 * pi / 180);
+    final minutesHandX = centerX + 80 * cos(dateTime.minute * 6 * pi / 180 - pi / 2);
 
-    final minutesHandY = centerY + 80 * sin(dateTime.minute * 6 * pi / 180);
+    final minutesHandY = centerY + 80 * sin(dateTime.minute * 6 * pi / 180 - pi / 2);
 
     canvas.drawLine(center, Offset(minutesHandX, minutesHandY), minutesHandBrush);
 
@@ -93,13 +93,13 @@ class GukbangAnalogClockPainter extends CustomPainter {
       ..strokeCap = StrokeCap.butt
       ..strokeWidth = 4;
 
-    final secondsHandX = centerX + 80 * cos(dateTime.second * 6 * pi / 180);
+    final secondsHandX = centerX + 80 * cos(dateTime.second * 6 * pi / 180 - pi / 2);
 
-    final secondsHandY = centerY + 80 * sin(dateTime.second * 6 * pi / 180);
+    final secondsHandY = centerY + 80 * sin(dateTime.second * 6 * pi / 180 - pi / 2);
 
-    final secondsHandX2 = centerX - 20 * cos((dateTime.second + percent) * 6 * pi / 180);
+    final secondsHandX2 = centerX - 20 * cos((dateTime.second + percent) * 6 * pi / 180 - pi / 2);
 
-    final secondsHandY2 = centerY - 20 * sin((dateTime.second + percent) * 6 * pi / 180);
+    final secondsHandY2 = centerY - 20 * sin((dateTime.second + percent) * 6 * pi / 180 - pi / 2);
 
     canvas.drawLine(Offset(secondsHandX, secondsHandY), Offset(secondsHandX2, secondsHandY2), secondsHandBrush);
   }
