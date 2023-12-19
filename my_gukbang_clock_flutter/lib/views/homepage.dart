@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:my_gukbang_clock_flutter/views.dart';
-import 'package:my_gukbang_clock_flutter/views/gukbang_time_percent_status_bar_view.dart';
 
 class HomePage extends StatelessWidget {
   final ClockView clockView = ClockView();
@@ -9,6 +8,7 @@ class HomePage extends StatelessWidget {
   final GukbangClockView gukbangClockView = GukbangClockView();
   final GukbangTimePercentStatusBarView gukbangTimePercentStatusBarView = GukbangTimePercentStatusBarView();
   final GukbangTimePercentStringView gukbangTimePercentStringView = GukbangTimePercentStringView();
+  final DDayView dDayView = DDayView();
 
   HomePage({Key? key}) : super(key: key);
 
@@ -33,9 +33,10 @@ class HomePage extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             clockView,
-            const SizedBox(height: 32),
+            dDayView,
+            const SizedBox(height: 16),
             gukbangAnalogClockView,
-            const SizedBox(height: 32),
+            const SizedBox(height: 16),
             gukbangClockView,
             const SizedBox(height: 32),
             gukbangTimePercentStatusBarView,
