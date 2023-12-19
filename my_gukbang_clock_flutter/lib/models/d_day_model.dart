@@ -17,7 +17,7 @@ class DDayModel {
     (now) {
       final dischargeDate = gukbangClockModel.dischargeDate;
 
-      int daysBetween = (dischargeDate.difference(now).inHours / 24).round();
+      int daysBetween = (dischargeDate.difference(now).inHours / 24).ceil();
       
       if (daysBetween < 0) {
         daysBetween = 0;
