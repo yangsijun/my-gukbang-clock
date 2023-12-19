@@ -19,7 +19,7 @@ class _GukbangTimePercentStringViewState extends State<GukbangTimePercentStringV
         if (snapshot.hasData) {
           return Text(
             snapshot.data!.toString(),
-            style: Theme.of(context).textTheme.displayMedium,
+            style: Theme.of(context).textTheme.displaySmall,
           );
         } else {
           return const CircularProgressIndicator();

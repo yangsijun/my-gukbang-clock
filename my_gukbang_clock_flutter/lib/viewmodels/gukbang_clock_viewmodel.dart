@@ -15,21 +15,19 @@ class GukbangClockViewModel {
 
   GukbangClockViewModel({required this.model});
 
-  Stream<DateTime> get gukbangTime => clockModel.dateTimeStream.map(
-    (dt) => model.calculateGukbangTime(dt)
-  );
+  Stream<DateTime> get gukbangTimeStream => model.gukbangTimeStream;
 
-  Stream<String> get gukbangTimeString => gukbangTime.map(
+  Stream<String> get gukbangTimeString => model.gukbangTimeStream.map(
     (dt) => '${dt.hour.toString().padLeft(2, "0")}시 ${dt.minute.toString().padLeft(2, "0")}분 ${dt.second.toString().padLeft(2, "0")}초'
   );
 
   double get gukbangTimePercent => model.percent;
 
-  Stream<String> get gukbangTimePercentString => gukbangTime.map(
+  Stream<String> get gukbangTimePercentString => model.gukbangTimeStream.map(
     (dt) => '${(gukbangTimePercent * 100).toStringAsFixed(7)}%'
   );
 
-  Stream<double> get gukbangTimePercentDouble => gukbangTime.map(
+  Stream<double> get gukbangTimePercentDouble => model.gukbangTimeStream.map(
     (dt) => gukbangTimePercent
   );
 }

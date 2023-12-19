@@ -16,7 +16,7 @@ class _GukbangAnalogClockViewState extends State<GukbangAnalogClockView> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DateTime>(
-      stream: widget.viewModel.gukbangTime,
+      stream: widget.viewModel.gukbangTimeStream,
       builder: ((context, snapshot) {
         if (snapshot.hasData) {
           return SizedBox(

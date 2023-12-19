@@ -1,3 +1,5 @@
+import 'package:my_gukbang_clock_flutter/models.dart';
+
 class GukbangClockModel {
   static GukbangClockModel? _instance;
 
@@ -8,20 +10,24 @@ class GukbangClockModel {
   
   GukbangClockModel();
 
+  ClockModel clockModel = ClockModel.instance;
   DateTime enlistmentDate = DateTime(2023, 4, 24, 0, 0, 0);
   DateTime dischargeDate = DateTime(2025, 1, 23, 0, 0, 0);
   double _percent = 0;
 
   double get percent => _percent;
 
-  DateTime calculateGukbangTime(DateTime now) {
-    calculateGukbangTimePercent(now);
+  Stream<DateTime> get gukbangTimeStream => clockModel.dateTimeStream.map(
+    (_) {
+      final now = clockModel.now;
+      double percent = calculateGukbangTimePercent(now);
 
-    int hours = (percent * 24).floor();
-    int minutes = ((percent * 24) % 1 * 60).floor();
-    int seconds = (((percent * 24) % 1 * 60) % 1 * 60).floor();
-    return DateTime(now.year, now.month, now.day, hours, minutes, seconds);
-  }
+      int hours = (percent * 24).floor();
+      int minutes = ((percent * 24) % 1 * 60).floor();
+      int seconds = (((percent * 24) % 1 * 60) % 1 * 60).floor();
+      return DateTime(now.year, now.month, now.day, hours, minutes, seconds);
+    }
+  );
 
   double calculateGukbangTimePercent(DateTime now) {
     final totalDuration = dischargeDate.difference(enlistmentDate);
