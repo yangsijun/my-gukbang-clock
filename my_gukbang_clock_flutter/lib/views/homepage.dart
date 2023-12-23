@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   final GukbangTimePercentStatusBarView gukbangTimePercentStatusBarView = GukbangTimePercentStatusBarView();
   final GukbangTimePercentStringView gukbangTimePercentStringView = GukbangTimePercentStringView();
   final DDayView dDayView = DDayView();
+  final RankView rankView = RankView();
 
   HomePage({Key? key}) : super(key: key);
 
@@ -23,9 +24,16 @@ class HomePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  '양시준의 국방시계',
-                  style: Theme.of(context).textTheme.displayMedium,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    rankView,
+                    const SizedBox(width: 8),
+                    Text(
+                      '양시준의 국방시계',
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
+                  ]
                 ),
                 const SizedBox(height: 16),
                 Text(
