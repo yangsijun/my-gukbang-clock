@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_gukbang_clock_flutter/viewmodels.dart';
 
 class RankView extends StatefulWidget {
-  static RankView? _instance;
 
-  static RankView get instance {
-    _instance ??= RankView();
-    return _instance!;
-  }
+  RankView({Key? key}) : super(key: key);
 
   @override
   State<RankView> createState() => _RankViewState();
